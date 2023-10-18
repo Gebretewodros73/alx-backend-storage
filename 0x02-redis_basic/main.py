@@ -2,15 +2,27 @@
 """
 Main file
 """
-import redis
 
-Cache = __import__('exercise').Cache
+# Import the Cache class
+from exercise import Cache
 
+# Create an instance of Cache
 cache = Cache()
 
-data = b"hello"
-key = cache.store(data)
-print(key)
+# Store data and get the generated key
+key1 = cache.store(b"first")
 
-local_redis = redis.Redis()
-print(local_redis.get(key))
+# Retrieve data using the key and print it
+data1 = cache.get(key1)
+print(data1)
+
+# Store more data
+key2 = cache.store(b"second")
+key3 = cache.store(b"third")
+
+# Retrieve the stored data and print it
+data2 = cache.get(key2)
+data3 = cache.get(key3)
+
+print(data2)
+print(data3)
