@@ -1,2 +1,2 @@
-#!/bin/bash
-echo 'show dbs' | mongo
+//List All
+show dbs
